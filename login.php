@@ -5,6 +5,7 @@ require_once 'includes/config.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $_POST['username'];
     $pass = md5($_POST['password']);
+    
 
     $sql = "SELECT * FROM users WHERE username='$user' AND password='$pass'";
     $result = $conn->query($sql);
@@ -35,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="post">
           <input type="text" name="username" class="form-control mb-2" placeholder="Username" required>
           <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+          <input type="password" name="password_confirm" class="form-control mb-3" placeholder="Confirm Password" required>          
           <button class="btn btn-primary w-100">Login</button>
         </form>
       </div>
